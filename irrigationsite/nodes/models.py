@@ -20,7 +20,6 @@ class SensorData(models.Model):
     moisture = models.FloatField()
     battery = models.FloatField()
     panel = models.FloatField()
-    com_status = models.BooleanField()
     update = models.DateTimeField()
 
 class Valve(models.Model):
@@ -39,11 +38,11 @@ class Valve(models.Model):
     tx_slot = models.IntegerField()
     rx_window = models.IntegerField()
 
-class Valve(models.Model):
-    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
-    moisture = models.FloatField()
+class ValveData(models.Model):
+    valve = models.ForeignKey(Valve, on_delete=models.CASCADE)
+    flow = models.FloatField()
     battery = models.FloatField()
     panel = models.FloatField()
-    status = models.BooleanField()
+    valve_status = models.BooleanField()
     update = models.DateTimeField()
 
